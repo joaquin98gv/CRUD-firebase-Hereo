@@ -1,0 +1,56 @@
+<div class="animate__animated animate__fadeIn">
+    <h1>Heroe <small>Nombre del heroe</small> </h1>
+    <hr>
+
+    <div class="row text-left mb-3">
+        <div class="col">
+            <button class="btn btn-danger" routerLink="/heroes">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+        </button>
+        </div>
+    </div>
+
+    <div class="row animate__animated animate__fadeInLeft">
+        <div class="col card p-3">
+            <form autocomplete="off" (ngSubmit)="guardar( f )" #f="ngForm">
+                <div class="form-group">
+                    <label>Firebase ID</label>
+                    <input type="text" class="form-control" placeholder="Firebase ID" disabled="disabled" [(ngModel)]="heroe.id" name="id">
+                    <small class="form-text text-muted">Este campo es autogenerado</small>
+                </div>
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" placeholder="Nombre del heroe" required [(ngModel)]="heroe.nombre" name="nombre">
+                </div>
+                <div class="form-group">
+                    <label>Estado</label>
+                    <input type="text" class="form-control" placeholder="Poder del heroe" [(ngModel)]="heroe.poder" name="poder">
+                </div>
+                <div class="form-group">
+                    <label>Nombre</label><br>
+                    <button class="btn btn-outline-success w-50" type="button" *ngIf="heroe.vivo" (click)="heroe.vivo = false">
+                        <i class="fa fa-smile-wink"></i>
+                        Vivo
+                        <small class="form-text text-muted">Click para dormir</small>
+                    </button>
+                    <button class="btn btn-outline-danger w-50" type="button" *ngIf="!heroe.vivo" (click)="heroe.vivo = true">
+                        <i class="fa fa-dizzy"></i>
+                        Muerto
+                        <small class="form-text text-muted">Click para despertar</small>
+                    </button>
+                </div>
+
+                <hr>
+
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary w-25">
+                        <i class="fa fa-save"></i>
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
